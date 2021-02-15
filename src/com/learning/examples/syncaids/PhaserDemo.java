@@ -26,8 +26,7 @@ public class PhaserDemo {
 				}
 			}
 		};
-		System.out
-				.println("new phaser is created with 1 registered unArrived party");
+		System.out.println("new phaser is created with 1 registered unArrived party");
 
 		// Create 3 threads
 		Thread thread1 = new Thread(new Traveller(phaser, "travller1"), "traveller-1");

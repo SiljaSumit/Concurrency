@@ -29,9 +29,9 @@ public class PhaserDemo {
 		System.out.println("new phaser is created with 1 registered unArrived party");
 
 		// Create 3 threads
-		Thread thread1 = new Thread(new Traveller(phaser, "travller1"), "traveller-1");
-		Thread thread2 = new Thread(new Traveller(phaser, "travller2"), "traveller-2");
-		Thread thread3 = new Thread(new Traveller(phaser, "travller3"), "traveller-3");
+		Thread thread1 = new Thread(new Traveller(phaser, "traveller1"), "traveller-1");
+		Thread thread2 = new Thread(new Traveller(phaser, "traveller2"), "traveller-2");
+		Thread thread3 = new Thread(new Traveller(phaser, "traveller3"), "traveller-3");
 
 		System.out.println("\n--------Phaser has started---------------");
 		// Start 3 threads

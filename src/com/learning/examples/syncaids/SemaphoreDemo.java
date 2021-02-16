@@ -14,12 +14,12 @@ public class SemaphoreDemo {
 		ExecutorService pool = Executors.newCachedThreadPool();
 		final Semaphore sp = new Semaphore(2);
 
-		travellersQueue.add(new Traveller("travller1"));
-		travellersQueue.add(new Traveller("travller2"));
-		travellersQueue.add(new Traveller("travller3"));
-		travellersQueue.add(new Traveller("travller4"));
-		travellersQueue.add(new Traveller("travller5"));
-		travellersQueue.add(new Traveller("travller6"));
+		travellersQueue.add(new Traveller("traveller1"));
+		travellersQueue.add(new Traveller("traveller2"));
+		travellersQueue.add(new Traveller("traveller3"));
+		travellersQueue.add(new Traveller("traveller4"));
+		travellersQueue.add(new Traveller("traveller5"));
+		travellersQueue.add(new Traveller("traveller6"));
 
 		for (int i = 0; i < 6; i++) {
 			pool.execute(() -> {

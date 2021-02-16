@@ -11,32 +11,44 @@ import java.util.function.UnaryOperator;
 public class FutureDemo {
 	static UnaryOperator<Traveller> baggageCheckin = traveller -> {
 		traveller.setBaggageCheckedIn(true);
+		sleep();
 		return traveller;
 	};
 
 	static UnaryOperator<Traveller> securityClearance = traveller -> {
 		traveller.setSecurityCleared(true);
+		sleep();
 		return traveller;
 	};
 
 	static UnaryOperator<Traveller> boarding = traveller -> {
 		traveller.setBoardingDone(true);
+		sleep();
 		return traveller;
 	};
 
 	static UnaryOperator<Traveller> seating = traveller -> {
 		traveller.setSeated(true);
+		sleep();
 		return traveller;
 	};
 
+	private static void sleep() {
+		try {
+			Thread.sleep(1000L);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		Queue<Traveller> travellersQueue = new ConcurrentLinkedQueue<>();
-		travellersQueue.add(new Traveller("travller1"));
-		travellersQueue.add(new Traveller("travller2"));
-		travellersQueue.add(new Traveller("travller3"));
-		travellersQueue.add(new Traveller("travller4"));
-		travellersQueue.add(new Traveller("travller5"));
-		travellersQueue.add(new Traveller("travller6"));
+		travellersQueue.add(new Traveller("traveller1"));
+		travellersQueue.add(new Traveller("traveller2"));
+		travellersQueue.add(new Traveller("traveller3"));
+		travellersQueue.add(new Traveller("traveller4"));
+		travellersQueue.add(new Traveller("traveller5"));
+		travellersQueue.add(new Traveller("traveller6"));
 
 		ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(4);
 
@@ -70,6 +82,6 @@ public class FutureDemo {
 					+ Thread.currentThread().getName() + " - All process is completed for " + traveller.getName()))
 					.join();
 		}
-        newFixedThreadPool.shutdown();
+		newFixedThreadPool.shutdown();
 	}
 }
